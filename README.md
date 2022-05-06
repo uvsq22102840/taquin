@@ -20,3 +20,5 @@ def retour():
     
 bouton_retour=tk.Button(racine,text="retour", command=retour,bg="grey")
 
+Afin de coder notre Taqui, nous nous somes inspiré de l'algorithme A* trouvé dans le livre "L'intelligence artificielle en pratique avec Python" écrit par Hugues Bersini et Ken Hasselmann . Cet algorithme se base sur une formule simple: f=g+h , g représente le numéro de l'étape (zéro pour le première étape, 1 pour la deuxième etc); h représente l'entropy c'est-à-dire le nombre de cases qui ne sont pas à la bonne place. ![image](https://user-images.githubusercontent.com/91220165/167218581-af0ab6a9-c5b7-4d3b-86ae-576208bcbcab.png)
+Comme on peut le voir sur cette image, cet algorithme nous permet de trouver la solution la plus rapide et la plus simple.
