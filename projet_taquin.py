@@ -14,39 +14,46 @@
 #4 créer verif de fin, soit arrangement  chiffre correct (dans la fonction qui tourne perma)
 #####################################################
 from tkinter import Tk
-from random import randint
-import tkinter as tk
-
+import random 
 
 ############################
-# constantes
-
-# taille des cases de la grille
-N = 100
 # dimensions canvas et grille
-LARGEUR = 700
-HAUTEUR = 700
-LARGEUR_CASE = LARGEUR // N
-HAUTEUR_CASE = HAUTEUR // N
+font_size = 16
+width_size = 700
+height_size = 700
+lenght = width_size/4
+widht = lenght/2
 ############################
-#Création canvas
 
-root = tk.Tk( )
-canvas = tk.Canvas(root, width=LARGEUR, height=HAUTEUR)
+boardShuffled =[i for i in range (1,6)]
+random.shuffle(boardShuffled)
+boardShuffled.append(0)
+
+def puzzle_display():
+
+    boardShuffled = [i for i in range(1,16)]
+    random.shuffle(boardShuffled)
+    boardShuffled.append(0)
+
+    tileIndice = 0
+    for i in range(4):
+        for j in range(4):
+
+            current_button = Button(cnv,
+                width=4
+                height=3
+                text=boardShuffled[tileIndice],
+                bg='royal blue')
+
+            current_button.grid(row=i,column=j)
+            current_button.bind('<Button-1>',move_tile)
+
+            tileIndice += 1
+
+    current_button.configure(bg="gray70")
+    current_button.configure(text="")
+    current_button.unbind('<Button-1>')
 
 
-def taquin():
-    return [[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15]]
 
-
-for r in range(4):
-    for c in range(4):
-        num = taquin()
-        tk.Label(root, text=num[r][c],
-         borderwidth=50 ).grid(row=r,column=c)
-
-
-
-
-root.mainloop()
 
