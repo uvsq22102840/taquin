@@ -103,7 +103,7 @@ def move_tile(event):
                 row=clickedButtonRow,
                 column=clickedButtonColumn)
 
-Font=('Ubuntu', font_size, 'bold')
+FONT=('Ubuntu', font_size, 'bold')
 windows=Tk()
 windows.title('Jeu du Taquin')
 windows.resizable(0,0)
