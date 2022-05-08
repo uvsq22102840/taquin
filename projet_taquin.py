@@ -25,7 +25,7 @@ lenght = width_size/4
 widht = lenght/2
 ############################
 
-boardShuffled =[i for i in range (1,6)]
+boardShuffled =[i for i in range (1,16)]
 random.shuffle(boardShuffled)
 boardShuffled.append(0)
 
@@ -40,8 +40,8 @@ def puzzle_display():
         for j in range(4):
 
             current_button = Button(cnv,
-                width=4
-                height=3
+                width=4,
+                height=3,
                 text=boardShuffled[tileIndice],
                 bg='royal blue')
 
