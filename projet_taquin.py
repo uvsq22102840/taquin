@@ -73,12 +73,12 @@ def move_tile(event):
                 row=clickedButtonRow,
                 column=clickedButtonColumn)
 
-    if(clikedButtonColumn > 0):
+    if(clickedButtonColumn > 0):
         buttonOnRight = cnv.grid_slaves(row=clickedButtonRow,column=clikedButtonColumn-1)[0]
         if (buttonOnRight.cget('bg') == 'gray70'):
             event.widget.grid(
                 row=clickedButtonRow,
-                column=clikedButtonColumn-1)
+                column=clickedButtonColumn-1)
             buttonOnRight.grid(
                 row=clickedButtonRow,
                 column=clickedButtonColumn)
