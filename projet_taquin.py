@@ -54,6 +54,10 @@ def puzzle_display():
     current_button.configure(text="")
     current_button.unbind('<Button-1>')
 
+def shuffle(event):
+    puzzle_display()
+
+
 
 
 
