@@ -13,7 +13,7 @@
 #3 créer clic de souris = déplacement chiffre si case vide à côté
 #4 créer verif de fin, soit arrangement  chiffre correct (dans la fonction qui tourne perma)
 #####################################################
-from tkinter import Tk
+from tkinter import *
 import random 
 
 ############################
@@ -56,6 +56,63 @@ def puzzle_display():
 
 def shuffle(event):
     puzzle_display()
+
+def move_tile(event):
+    clickedButton = event.widget
+    buttonGridInfo = clickedButton.grid_info()
+    clickedButtonRow = buttonGridInfo["row"]
+    clickedButtonColumn = buttonGridInfo["column"]
+
+    if(clickedButtonColumn < 3):
+        buttonOnRight = cnv.grid_slaves(row=clickedButtonRow, column=clickedButtonColumn+1)[0]
+        if (buttonOnRight.cget['bg'] == 'gray70'):
+            event.widget.grid(
+                row=clickedButtonRow,
+                column=clickedButtonColumn+1)
+            buttonOnRight.grid(
+                row=clickedButtonRow,
+                column=clickedButtonColumn)
+
+    if(clikedButtonColumn > 0):
+        buttonOnRight = cnv.grid_slaves(row=clickedButtonRow,column=clikedButtonColumn-1)[0]
+        if (buttonOnRight.cget('bg') == 'gray70'):
+            event.widget.grid(
+                row=clickedButtonRow,
+                column=clikedButtonColumn-1)
+            buttonOnRight.grid(
+                row=clickedButtonRow,
+                column=clickedButtonColumn)
+
+    if(clickedButtonRow > 0):
+        buttonOnRight = cnv.grid_slaves(row=clickedButtonRow-1, column=clickedButtonColumn)[0]
+        if (buttonOnRight.cget('bg') == 'gray70'):
+            event.widget.grid(
+                row=clickedButtonRow-1,
+                column=clickedButtonColumn)
+            buttonOnRight.grid(
+                row=clickedButtonRow,
+                column=clickedButtonColumn)
+
+    if(clickedButtonRow < 3):
+        buttonOnRight = cnv.grid_slaves(row=clickedButtonRow+1,column=clickedButtonColumn)[0]
+        if (buttonOnRight.cget('bg') == 'gray70'):
+            event.widget.grid(
+                row=clickedButtonRow+1,
+                column=clickedButtonColumn)
+            buttonOnRight.grid(
+                row=clickedButtonRow,
+                column=clickedButtonColumn)
+
+Font=('Ubuntu', font_size, 'bold')
+windows=Tk()
+windows.title('Jeu du Taquin')
+windows.resizable(0,0)
+windows.bind('<KeyPress-s>', shuffle)
+cnv=Canvas(windows,width=width_size, height=height_size, bg='gray70')
+cnv.pack()
+
+puzzle_display()
+windows.mainloop()
 
 
 
