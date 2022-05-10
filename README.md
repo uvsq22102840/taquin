@@ -5,6 +5,7 @@
 # Eva AVARRE
 # Marwa FIDAH MOURO
 # Erwann KERVOELEN
+# Edgar LIGUTI
 #https://github.com/uvsq22102840/taquin
 ######################################################
 
